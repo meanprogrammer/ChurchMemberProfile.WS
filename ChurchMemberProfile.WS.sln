@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data", "ChurchMemberProfile.WS.Data\ChurchMemberProfile.WS.Data.csproj", "{3F38BA7E-4B6C-450B-8177-92D757BBB185}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0A7A8F0-2162-4704-A4C2-E1B7A438681B}"
+	ProjectSection(SolutionItems) = preProject
+		database.sql = database.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
