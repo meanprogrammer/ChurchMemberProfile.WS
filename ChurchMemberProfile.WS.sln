@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Entity", "ChurchMemberProfile.WS.Entity\ChurchMemberProfile.WS.Entity.csproj", "{450E5345-9D75-40E4-83DE-A26365549E90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data", "ChurchMemberProfile.WS.Data\ChurchMemberProfile.WS.Data.csproj", "{3F38BA7E-4B6C-450B-8177-92D757BBB185}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{450E5345-9D75-40E4-83DE-A26365549E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{450E5345-9D75-40E4-83DE-A26365549E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{450E5345-9D75-40E4-83DE-A26365549E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

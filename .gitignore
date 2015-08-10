@@ -4,3 +4,4 @@
 
 /ChurchMemberProfile.WS.Entity/obj/Debug
 *.suo
+/ChurchMemberProfile.WS.Data/obj/Debug
