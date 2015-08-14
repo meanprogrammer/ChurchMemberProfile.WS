@@ -5,3 +5,9 @@
 /ChurchMemberProfile.WS.Entity/obj/Debug
 *.suo
 /ChurchMemberProfile.WS.Data/obj/Debug
+/ChurchMemberProfile.WS.Data/bin/Debug
+/ChurchMemberProfile.WS.Data.Core/bin/Debug
+/ChurchMemberProfile.WS.Data.Core/obj/Debug/TempPE
+/ChurchMemberProfile.WS.Data.Core/obj/Debug
+/ChurchMemberProfile.WS.Entity/bin/Debug
+/ChurchMemberProfile.WS.Model
