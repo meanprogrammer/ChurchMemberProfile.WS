@@ -48,10 +48,6 @@
       <Project>{9aa64f63-091f-452c-96d9-6e481f552e1a}</Project>
       <Name>ChurchMemberProfile.WS.Data.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ChurchMemberProfile.WS.Model\ChurchMemberProfile.WS.Model.csproj">
-      <Project>{bc41b574-b234-430b-adea-bba0abc7a145}</Project>
-      <Name>ChurchMemberProfile.WS.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
