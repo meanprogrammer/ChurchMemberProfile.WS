@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Entity", "ChurchMemberProfile.WS.Entity\ChurchMemberProfile.WS.Entity.csproj", "{450E5345-9D75-40E4-83DE-A26365549E90}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data", "ChurchMemberProfile.WS.Data\ChurchMemberProfile.WS.Data.csproj", "{3F38BA7E-4B6C-450B-8177-92D757BBB185}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0A7A8F0-2162-4704-A4C2-E1B7A438681B}"
@@ -14,16 +12,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data.Core", "ChurchMemberProfile.WS.Data.Core\ChurchMemberProfile.WS.Data.Core.csproj", "{9AA64F63-091F-452C-96D9-6E481F552E1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Model", "ChurchMemberProfile.WS.Model\ChurchMemberProfile.WS.Model.csproj", "{BC41B574-B234-430B-ADEA-BBA0ABC7A145}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{450E5345-9D75-40E4-83DE-A26365549E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{450E5345-9D75-40E4-83DE-A26365549E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{450E5345-9D75-40E4-83DE-A26365549E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{450E5345-9D75-40E4-83DE-A26365549E90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F38BA7E-4B6C-450B-8177-92D757BBB185}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,6 +28,10 @@ Global
 		{9AA64F63-091F-452C-96D9-6E481F552E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AA64F63-091F-452C-96D9-6E481F552E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AA64F63-091F-452C-96D9-6E481F552E1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC41B574-B234-430B-ADEA-BBA0ABC7A145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC41B574-B234-430B-ADEA-BBA0ABC7A145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC41B574-B234-430B-ADEA-BBA0ABC7A145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC41B574-B234-430B-ADEA-BBA0ABC7A145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
