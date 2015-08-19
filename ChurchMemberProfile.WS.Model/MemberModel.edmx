@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ChurchMemberProfileModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ChurchMemberProfileModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="MemberProfile">
           <Key>
             <PropertyRef Name="RecordID" />
@@ -18,11 +18,31 @@
           <Property Name="LeaderId" Type="int" />
           <Property Name="Address" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="MemberProfilePropertyDefinition">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enabled" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberProfilePropertyValue">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDeleted" Type="tinyint" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="ChurchMemberProfileModelStoreContainer">
           <EntitySet Name="MemberProfile" EntityType="Self.MemberProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberProfilePropertyDefinition" EntityType="Self.MemberProfilePropertyDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberProfilePropertyValue" EntityType="Self.MemberProfilePropertyValue" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ChurchMemberProfileModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -41,7 +61,28 @@
         </EntityType>
         <EntityContainer Name="ChurchMemberProfileEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MemberProfiles" EntityType="Self.MemberProfile" />
+          <EntitySet Name="MemberProfilePropertyDefinitions" EntityType="ChurchMemberProfileModel.MemberProfilePropertyDefinition" />
+          <EntitySet Name="MemberProfilePropertyValues" EntityType="ChurchMemberProfileModel.MemberProfilePropertyValue" />
         </EntityContainer>
+        <EntityType Name="MemberProfilePropertyDefinition">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enabled" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberProfilePropertyValue">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Byte" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -59,6 +100,27 @@
                 <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
                 <ScalarProperty Name="LeaderId" ColumnName="LeaderId" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberProfilePropertyDefinitions">
+            <EntityTypeMapping TypeName="ChurchMemberProfileModel.MemberProfilePropertyDefinition">
+              <MappingFragment StoreEntitySet="MemberProfilePropertyDefinition">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberProfilePropertyValues">
+            <EntityTypeMapping TypeName="ChurchMemberProfileModel.MemberProfilePropertyValue">
+              <MappingFragment StoreEntitySet="MemberProfilePropertyValue">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

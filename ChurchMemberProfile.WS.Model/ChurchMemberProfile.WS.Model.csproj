@@ -59,6 +59,12 @@
     <Compile Include="MemberProfile.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MemberProfilePropertyDefinition.cs">
+      <DependentUpon>MemberModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberProfilePropertyValue.cs">
+      <DependentUpon>MemberModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

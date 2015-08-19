@@ -1,4 +1,5 @@
-﻿using ChurchMemberProfile.WS.Model;
+﻿using ChurchMemberProfile.WS.Data.Core;
+using ChurchMemberProfile.WS.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +13,42 @@ namespace ChurchMemberProfile.WS.Data
 
         public MemberProfile GetById(int id)
         {
-            throw new NotImplementedException();
+            MemberProfile member = null;
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                member = context.MemberProfiles.Where(c => c.RecordID == id).FirstOrDefault();
+            }
+            return member;
         }
 
         public IEnumerable<MemberProfile> GetAll()
         {
-            throw new NotImplementedException();
+            List<MemberProfile> members = new List<MemberProfile>();
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                members = context.MemberProfiles.ToList();
+            }
+            return members;
         }
 
-        public void InsertOnSubmit(MemberProfile entity)
+        public void InsertOnSubmit(int id)
         {
-            throw new NotImplementedException();
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                MemberProfile entity = context.MemberProfiles.Where(c => c.RecordID == id).FirstOrDefault();
+                context.MemberProfiles.Add(entity);
+                context.SaveChanges();
+            }
         }
 
-        public void DeleteOnSubmit(MemberProfile entity)
+        public void DeleteOnSubmit(int id)
         {
-            throw new NotImplementedException();
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                MemberProfile entity = context.MemberProfiles.Where(c => c.RecordID == id).FirstOrDefault();
+                context.MemberProfiles.Remove(entity);
+                context.SaveChanges();
+            }
         }
 
         public void SubmitChanges()
