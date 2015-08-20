@@ -11,7 +11,9 @@ namespace ChurchMemberProfile.WS.Data
         T GetById(int id);
         IEnumerable<T> GetAll();
         void InsertOnSubmit(T entity);
+        void InsertOnSubmit(int id);
         void DeleteOnSubmit(T entity);
+        void DeleteOnSubmit(int id);
         void SubmitChanges();
     }
 }

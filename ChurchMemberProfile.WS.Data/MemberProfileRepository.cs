@@ -55,5 +55,16 @@ namespace ChurchMemberProfile.WS.Data
         {
             throw new NotImplementedException();
         }
+
+
+        public void InsertOnSubmit(MemberProfile entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteOnSubmit(MemberProfile entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
