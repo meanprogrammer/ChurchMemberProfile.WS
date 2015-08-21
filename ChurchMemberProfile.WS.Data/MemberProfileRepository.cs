@@ -31,16 +31,6 @@ namespace ChurchMemberProfile.WS.Data
             return members;
         }
 
-        public void InsertOnSubmit(int id)
-        {
-            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
-            {
-                MemberProfile entity = context.MemberProfiles.Where(c => c.RecordID == id).FirstOrDefault();
-                context.MemberProfiles.Add(entity);
-                context.SaveChanges();
-            }
-        }
-
         public void DeleteOnSubmit(int id)
         {
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
@@ -51,20 +41,13 @@ namespace ChurchMemberProfile.WS.Data
             }
         }
 
-        public void SubmitChanges()
-        {
-            throw new NotImplementedException();
-        }
-
-
         public void InsertOnSubmit(MemberProfile entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteOnSubmit(MemberProfile entity)
-        {
-            throw new NotImplementedException();
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                context.MemberProfiles.Add(entity);
+                context.SaveChanges();
+            }
         }
     }
 }
