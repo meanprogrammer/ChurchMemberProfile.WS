@@ -9,34 +9,32 @@ using System.Web.Http;
 
 namespace ChurchMemberProfile.WS.Api.Controllers
 {
-    public class MemberProfileController : ApiController
+    public class PropertyDefController : ApiController
     {
-        MemberProfileRepository repository = new MemberProfileRepository();
-
-        // GET api/values
-        public IEnumerable<MemberProfile> Get()
+        PropertyDefinitionRepository repository = new PropertyDefinitionRepository();
+        // GET api/propertydef
+        public IEnumerable<MemberProfilePropertyDefinition> Get()
         {
             return repository.GetAll();
         }
 
-        // GET api/values/5
-        public MemberProfile Get(int id)
+        // GET api/propertydef/5
+        public MemberProfilePropertyDefinition Get(int id)
         {
             return repository.GetById(id);
         }
 
-        // POST api/values
-        public void Post(MemberProfile profile)
+        // POST api/propertydef
+        public void Post([FromBody]string value)
         {
-            repository.InsertOnSubmit(profile);
         }
 
-        // PUT api/values/5
+        // PUT api/propertydef/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/propertydef/5
         public void Delete(int id)
         {
             repository.DeleteOnSubmit(id);
