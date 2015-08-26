@@ -22,19 +22,29 @@ namespace ChurchMemberProfile.WS.Data
             MemberProfilePropertyValue prop = null;
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                //prop = context.MemberProfilePropertyValues.Where(c=>c.)
+                prop = context.MemberProfilePropertyValues.Where(c => c.RecordID == id).FirstOrDefault();
             }
-            return null;
+            return prop;
         }
 
         public IEnumerable<MemberProfilePropertyValue> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<MemberProfilePropertyValue> props = null;
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                props = context.MemberProfilePropertyValues.Where(c => c.MemberId == this.memberId).ToList();
+            }
+            return props;
         }
 
         public void InsertOnSubmit(MemberProfilePropertyValue entity)
         {
-            throw new NotImplementedException();
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                context.MemberProfilePropertyValues.Add(entity);
+                context.SaveChanges();
+            }
+            
         }
 
         public void DeleteOnSubmit(int id)

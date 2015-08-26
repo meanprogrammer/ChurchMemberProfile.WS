@@ -33,7 +33,7 @@
             <PropertyRef Name="RecordID" />
           </Key>
           <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
           <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IsDeleted" Type="tinyint" Nullable="false" />
         </EntityType>
@@ -79,7 +79,7 @@
             <PropertyRef Name="RecordID" />
           </Key>
           <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Byte" Nullable="false" />
         </EntityType>
@@ -119,7 +119,7 @@
               <MappingFragment StoreEntitySet="MemberProfilePropertyValue">
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="RecordID" ColumnName="RecordID" />
               </MappingFragment>
             </EntityTypeMapping>
