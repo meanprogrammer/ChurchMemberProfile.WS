@@ -13,29 +13,29 @@ namespace ChurchMemberProfile.WS.Api.Controllers
     {
         MemberProfileRepository repository = new MemberProfileRepository();
 
-        // GET: api/MemberProfile
+        // GET api/values
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/MemberProfile/5
+        // GET api/values/5
         public MemberProfile Get(int id)
         {
             return repository.GetById(id);
         }
 
-        // POST: api/MemberProfile
+        // POST api/values
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/MemberProfile/5
+        // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/MemberProfile/5
+        // DELETE api/values/5
         public void Delete(int id)
         {
         }

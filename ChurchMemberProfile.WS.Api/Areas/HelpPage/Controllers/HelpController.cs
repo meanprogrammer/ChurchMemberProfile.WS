@@ -1,7 +1,6 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using ChurchMemberProfile.WS.Api.Areas.HelpPage.ModelDescriptions;
 using ChurchMemberProfile.WS.Api.Areas.HelpPage.Models;
 
 namespace ChurchMemberProfile.WS.Api.Areas.HelpPage.Controllers
@@ -11,8 +10,6 @@ namespace ChurchMemberProfile.WS.Api.Areas.HelpPage.Controllers
     /// </summary>
     public class HelpController : Controller
     {
-        private const string ErrorViewName = "Error";
-
         public HelpController()
             : this(GlobalConfiguration.Configuration)
         {
@@ -27,7 +24,6 @@ namespace ChurchMemberProfile.WS.Api.Areas.HelpPage.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
             return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
         }
 
@@ -42,22 +38,7 @@ namespace ChurchMemberProfile.WS.Api.Areas.HelpPage.Controllers
                 }
             }
 
-            return View(ErrorViewName);
-        }
-
-        public ActionResult ResourceModel(string modelName)
-        {
-            if (!String.IsNullOrEmpty(modelName))
-            {
-                ModelDescriptionGenerator modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
-                ModelDescription modelDescription;
-                if (modelDescriptionGenerator.GeneratedModels.TryGetValue(modelName, out modelDescription))
-                {
-                    return View(modelDescription);
-                }
-            }
-
-            return View(ErrorViewName);
+            return View("Error");
         }
     }
 }
