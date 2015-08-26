@@ -152,6 +152,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberProfileController.cs" />
     <Compile Include="Controllers\PropertyDefController.cs" />
+    <Compile Include="Controllers\PropertyValController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
