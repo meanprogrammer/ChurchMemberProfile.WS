@@ -14,3 +14,10 @@
 /ChurchMemberProfile.WS.Model/obj/Debug
 /ChurchMemberProfile.WS.Data.Tests/bin/Debug
 /ChurchMemberProfile.WS.Data.Tests/obj/Debug
+/ChurchMemberProfile.WS.Api/bin
+/ChurchMemberProfile.WS.Api/obj/Debug
+*.user
+/ChurchMemberProfile.WS.Api.Tests/obj/Debug
+/packages/EntityFramework.6.1.1
+/packages/jQuery.1.10.2
+/packages/jQuery.Validation.1.11.1

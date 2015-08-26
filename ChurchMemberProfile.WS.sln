@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Web
+# Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data", "ChurchMemberProfile.WS.Data\ChurchMemberProfile.WS.Data.csproj", "{3F38BA7E-4B6C-450B-8177-92D757BBB185}"
@@ -15,6 +15,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Model", "ChurchMemberProfile.WS.Model\ChurchMemberProfile.WS.Model.csproj", "{BC41B574-B234-430B-ADEA-BBA0ABC7A145}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Data.Tests", "ChurchMemberProfile.WS.Data.Tests\ChurchMemberProfile.WS.Data.Tests.csproj", "{893C8A24-3094-49CB-8E38-93D414125815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Api", "ChurchMemberProfile.WS.Api\ChurchMemberProfile.WS.Api.csproj", "{8180C49D-08C1-4DBA-AB5C-FB5A7FA44D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurchMemberProfile.WS.Api.Tests", "ChurchMemberProfile.WS.Api.Tests\ChurchMemberProfile.WS.Api.Tests.csproj", "{6E662F83-44CC-47B8-B1D4-D8C5FD4CD6A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{893C8A24-3094-49CB-8E38-93D414125815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{893C8A24-3094-49CB-8E38-93D414125815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{893C8A24-3094-49CB-8E38-93D414125815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8180C49D-08C1-4DBA-AB5C-FB5A7FA44D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8180C49D-08C1-4DBA-AB5C-FB5A7FA44D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8180C49D-08C1-4DBA-AB5C-FB5A7FA44D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8180C49D-08C1-4DBA-AB5C-FB5A7FA44D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E662F83-44CC-47B8-B1D4-D8C5FD4CD6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E662F83-44CC-47B8-B1D4-D8C5FD4CD6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E662F83-44CC-47B8-B1D4-D8C5FD4CD6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E662F83-44CC-47B8-B1D4-D8C5FD4CD6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
