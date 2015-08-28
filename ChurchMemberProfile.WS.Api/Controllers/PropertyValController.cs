@@ -1,4 +1,5 @@
 ﻿using ChurchMemberProfile.WS.Data;
+using ChurchMemberProfile.WS.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +13,23 @@ namespace ChurchMemberProfile.WS.Api.Controllers
     {
         MemberProfilePropertyRepository repository = new MemberProfilePropertyRepository();
         // GET api/propertyval
-        public IEnumerable<string> Get()
+        public IEnumerable<MemberProfilePropertyValue> Get(int parentId)
         {
-            return new string[] { "value1", "value2" };
+            repository = new MemberProfilePropertyRepository(parentId);
+            return repository.GetAll();
         }
 
         // GET api/propertyval/5
-        public string Get(int id)
+        public MemberProfilePropertyValue Get(int parentId, int recordId)
         {
-            return "value";
+            repository = new MemberProfilePropertyRepository(parentId);
+            return repository.GetById(recordId);
         }
 
         // POST api/propertyval
-        public void Post([FromBody]string value)
+        public void Post([FromBody]MemberProfilePropertyValue value)
         {
+            repository.InsertOnSubmit(value);
         }
 
         // PUT api/propertyval/5
@@ -34,8 +38,10 @@ namespace ChurchMemberProfile.WS.Api.Controllers
         }
 
         // DELETE api/propertyval/5
-        public void Delete(int id)
+        public void Delete(int parentId, int id)
         {
+            repository = new MemberProfilePropertyRepository(parentId);
+            repository.DeleteOnSubmit(id);
         }
     }
 }

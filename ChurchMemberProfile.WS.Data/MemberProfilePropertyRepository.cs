@@ -15,7 +15,7 @@ namespace ChurchMemberProfile.WS.Data
             this.memberId = memberId;
         }
 
-        private MemberProfilePropertyRepository() { }
+        public MemberProfilePropertyRepository() { }
 
         public MemberProfilePropertyValue GetById(int id)
         {
@@ -27,8 +27,16 @@ namespace ChurchMemberProfile.WS.Data
             return prop;
         }
 
+
+        protected void SetMemberId(int memberId)
+        {
+            this.memberId = memberId;
+        }
+
         public IEnumerable<MemberProfilePropertyValue> GetAll()
         {
+            if (this.memberId == 0) { throw new InvalidOperationException("A member id must be set."); }
+
             IEnumerable<MemberProfilePropertyValue> props = null;
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
