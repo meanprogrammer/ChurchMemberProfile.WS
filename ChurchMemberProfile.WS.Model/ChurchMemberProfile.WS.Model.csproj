@@ -67,6 +67,9 @@
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyTemplate.cs">
+      <DependentUpon>MemberModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="MemberModel.edmx">

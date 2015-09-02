@@ -6,8 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="dc4de48444944b4f8b6fb61dc3cd4ab9" Name="Diagram1">
         <EntityTypeShape EntityType="ChurchMemberProfileModel.MemberProfile" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChurchMemberProfileModel.MemberProfilePropertyDefinition" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ChurchMemberProfileModel.MemberProfilePropertyValue" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ChurchMemberProfileModel.MemberProfilePropertyDefinition" Width="2.75" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ChurchMemberProfileModel.MemberProfilePropertyValue" Width="2" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ChurchMemberProfileModel.PropertyTemplate" Width="2.375" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
