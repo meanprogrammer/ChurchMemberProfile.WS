@@ -20,5 +20,7 @@ namespace ChurchMemberProfile.WS.Model
         public string Description { get; set; }
         public byte Enabled { get; set; }
         public int TemplateID { get; set; }
+    
+        public virtual PropertyTemplate PropertyTemplate { get; set; }
     }
 }

@@ -14,8 +14,15 @@ namespace ChurchMemberProfile.WS.Model
     
     public partial class PropertyTemplate
     {
+        public PropertyTemplate()
+        {
+            this.MemberProfilePropertyDefinitions = new HashSet<MemberProfilePropertyDefinition>();
+        }
+    
         public int RecordID { get; set; }
         public string TemplateName { get; set; }
         public string TemplateDescription { get; set; }
+    
+        public virtual ICollection<MemberProfilePropertyDefinition> MemberProfilePropertyDefinitions { get; set; }
     }
 }

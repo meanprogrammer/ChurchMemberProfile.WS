@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="MemberProfileRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyTemplateRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChurchMemberProfile.WS.Data.Core\ChurchMemberProfile.WS.Data.Core.csproj">

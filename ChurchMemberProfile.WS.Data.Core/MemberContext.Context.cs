@@ -29,5 +29,6 @@ namespace ChurchMemberProfile.WS.Data.Core
         public DbSet<MemberProfile> MemberProfiles { get; set; }
         public DbSet<MemberProfilePropertyDefinition> MemberProfilePropertyDefinitions { get; set; }
         public DbSet<MemberProfilePropertyValue> MemberProfilePropertyValues { get; set; }
+        public DbSet<PropertyTemplate> PropertyTemplates { get; set; }
     }
 }

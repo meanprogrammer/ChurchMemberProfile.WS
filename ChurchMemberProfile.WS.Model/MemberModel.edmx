@@ -47,11 +47,27 @@
           <Property Name="TemplateName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TemplateDescription" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <Association Name="FK_MemberProfilePropertyDefinition_PropertyTemplate">
+          <End Role="PropertyTemplate" Type="Self.PropertyTemplate" Multiplicity="1" />
+          <End Role="MemberProfilePropertyDefinition" Type="Self.MemberProfilePropertyDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyTemplate">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="MemberProfilePropertyDefinition">
+              <PropertyRef Name="TemplateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ChurchMemberProfileModelStoreContainer">
           <EntitySet Name="MemberProfile" EntityType="Self.MemberProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberProfilePropertyDefinition" EntityType="Self.MemberProfilePropertyDefinition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberProfilePropertyValue" EntityType="Self.MemberProfilePropertyValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyTemplate" EntityType="Self.PropertyTemplate" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MemberProfilePropertyDefinition_PropertyTemplate" Association="Self.FK_MemberProfilePropertyDefinition_PropertyTemplate">
+            <End Role="PropertyTemplate" EntitySet="PropertyTemplate" />
+            <End Role="MemberProfilePropertyDefinition" EntitySet="MemberProfilePropertyDefinition" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -75,6 +91,10 @@
           <EntitySet Name="MemberProfilePropertyDefinitions" EntityType="ChurchMemberProfileModel.MemberProfilePropertyDefinition" />
           <EntitySet Name="MemberProfilePropertyValues" EntityType="ChurchMemberProfileModel.MemberProfilePropertyValue" />
           <EntitySet Name="PropertyTemplates" EntityType="ChurchMemberProfileModel.PropertyTemplate" />
+          <AssociationSet Name="FK_MemberProfilePropertyDefinition_PropertyTemplate" Association="ChurchMemberProfileModel.FK_MemberProfilePropertyDefinition_PropertyTemplate">
+            <End Role="PropertyTemplate" EntitySet="PropertyTemplates" />
+            <End Role="MemberProfilePropertyDefinition" EntitySet="MemberProfilePropertyDefinitions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="MemberProfilePropertyDefinition">
           <Key>
@@ -86,6 +106,7 @@
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Enabled" Type="Byte" Nullable="false" />
           <Property Name="TemplateID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PropertyTemplate" Relationship="ChurchMemberProfileModel.FK_MemberProfilePropertyDefinition_PropertyTemplate" FromRole="MemberProfilePropertyDefinition" ToRole="PropertyTemplate" />
         </EntityType>
         <EntityType Name="MemberProfilePropertyValue">
           <Key>
@@ -104,7 +125,20 @@
           <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TemplateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TemplateDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MemberProfilePropertyDefinitions" Relationship="ChurchMemberProfileModel.FK_MemberProfilePropertyDefinition_PropertyTemplate" FromRole="PropertyTemplate" ToRole="MemberProfilePropertyDefinition" />
         </EntityType>
+        <Association Name="FK_MemberProfilePropertyDefinition_PropertyTemplate">
+          <End Type="ChurchMemberProfileModel.PropertyTemplate" Role="PropertyTemplate" Multiplicity="1" />
+          <End Type="ChurchMemberProfileModel.MemberProfilePropertyDefinition" Role="MemberProfilePropertyDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyTemplate">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="MemberProfilePropertyDefinition">
+              <PropertyRef Name="TemplateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
