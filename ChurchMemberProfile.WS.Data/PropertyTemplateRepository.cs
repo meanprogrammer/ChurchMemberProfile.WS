@@ -60,6 +60,14 @@ namespace ChurchMemberProfile.WS.Data
                 PropertyTemplate template = context.PropertyTemplates.Where(c => c.RecordID == id).FirstOrDefault();
                 if (template != null)
                 {
+                    var child = context.MemberProfilePropertyDefinitions.Where(c => c.TemplateID == template.RecordID);
+
+                    foreach (var item in child)
+                    {
+                        context.MemberProfilePropertyDefinitions.Remove(item);
+                    }
+                    context.SaveChanges();
+
                     context.PropertyTemplates.Remove(template);
                     context.SaveChanges();
                 }

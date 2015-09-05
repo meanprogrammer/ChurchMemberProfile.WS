@@ -97,19 +97,110 @@ namespace ChurchMemberProfile.WS.Data.Tests
         [TestMethod()]
         public void GetAllTest()
         {
-            throw new NotImplementedException();
+            var all = repo.GetAll();
+            Assert.IsNotNull(all);
+            Assert.AreEqual(1, all.Count());
         }
 
         [TestMethod()]
         public void InsertOnSubmitTest()
         {
-            throw new NotImplementedException();
+            PropertyTemplate t1 = new PropertyTemplate()
+            {
+                RecordID = 1,
+                TemplateName = "leaders template Template",
+                TemplateDescription = "leaders template Description"
+            };
+
+            List<MemberProfilePropertyDefinition> list = new List<MemberProfilePropertyDefinition>();
+            MemberProfilePropertyDefinition d1 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 1,
+                Name = "Chapter 21",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 21",
+                TemplateID = 1
+            };
+
+            MemberProfilePropertyDefinition d2 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 2,
+                Name = "Chapter 22",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 22",
+                TemplateID = 1
+            };
+
+            MemberProfilePropertyDefinition d3 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 3,
+                Name = "Chapter 23",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 23",
+                TemplateID = 1
+            };
+
+            list.Add(d1); list.Add(d2); list.Add(d3);
+            t1.MemberProfilePropertyDefinitions = list;
+            inner.InsertOnSubmit(t1);
+
+            var template = repo.GetById(2);
+            Assert.IsNotNull(template);
         }
 
         [TestMethod()]
         public void DeleteOnSubmitTest()
         {
-            throw new NotImplementedException();
+            PropertyTemplate t1 = new PropertyTemplate()
+            {
+                RecordID = 1,
+                TemplateName = "advanced template Template",
+                TemplateDescription = "advanced template Description"
+            };
+
+            List<MemberProfilePropertyDefinition> list = new List<MemberProfilePropertyDefinition>();
+            MemberProfilePropertyDefinition d1 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 1,
+                Name = "Chapter 11",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 11",
+                TemplateID = 1
+            };
+
+            MemberProfilePropertyDefinition d2 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 2,
+                Name = "Chapter 12",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 12",
+                TemplateID = 1
+            };
+
+            MemberProfilePropertyDefinition d3 = new MemberProfilePropertyDefinition()
+            {
+                RecordID = 3,
+                Name = "Chapter 13",
+                Type = "Bool",
+                Enabled = 1,
+                Description = "Has the member finished with the chapter 13",
+                TemplateID = 1
+            };
+
+            list.Add(d1); list.Add(d2); list.Add(d3);
+            t1.MemberProfilePropertyDefinitions = list;
+            inner.InsertOnSubmit(t1);
+
+            repo.DeleteOnSubmit(2);
+
+            var template = repo.GetById(2);
+            Assert.IsNull(template);
+
         }
     }
 }
