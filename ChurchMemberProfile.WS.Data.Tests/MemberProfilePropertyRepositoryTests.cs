@@ -9,16 +9,44 @@ namespace ChurchMemberProfile.WS.Data.Tests
     [TestClass()]
     public class MemberProfilePropertyRepositoryTests
     {
-        [TestMethod()]
-        public void MemberProfilePropertyRepositoryTest()
+        private static TestContext testContextInstance;
+
+        public TestContext TestContext
         {
-            throw new NotImplementedException();
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+
+        [ClassInitialize]
+        public static void init(TestContext a)
+        {
+            cleanup();
+            UnitTestHelper.InsertOneMember();
+            int memberId = 1;
+            UnitTestHelper.InsertDefaultTemplate(memberId);
+
+        }
+
+        [ClassCleanup]
+        public static void cleanup()
+        {
+            UnitTestHelper.TruncateTable("MemberProfile");
         }
 
         [TestMethod()]
-        public void MemberProfilePropertyRepositoryTest1()
+        public void MemberProfilePropertyRepositoryContructorTest()
         {
-            throw new NotImplementedException();
+            MemberProfilePropertyRepository repo = new MemberProfilePropertyRepository();
+            Assert.IsNotNull(repo);
+            MemberProfilePropertyRepository repo2 = new MemberProfilePropertyRepository(2);
+            Assert.IsNotNull(repo2);
         }
 
         [TestMethod()]

@@ -32,28 +32,14 @@ namespace ChurchMemberProfile.WS.Data.Tests
         [ClassInitialize]
         public static void init(TestContext a)
         {
-            cleanup();   
-            MemberProfile m1 = new MemberProfile() { 
-                RecordID = 1,
-                Lastname = "Dudan",
-                Firstname = "Valiant",
-                MI = "A",
-                Nickname = "Dudz",
-                Address = "Caloocan City",
-                Birthdate = new DateTime(1986, 8, 14),
-                LeaderId = 11
-            };
-
-            inner.InsertOnSubmit(m1);
+            cleanup();
+            UnitTestHelper.InsertOneMember();
         }
 
         [ClassCleanup]
         public static void cleanup()
         {
-            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
-            {
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE MemberProfile");
-            }
+            UnitTestHelper.TruncateTable("MemberProfile");
         }
 
         [TestMethod()]
@@ -103,7 +89,6 @@ namespace ChurchMemberProfile.WS.Data.Tests
         {
             MemberProfile m1 = new MemberProfile()
             {
-                RecordID = 3,
                 Lastname = "Dudan",
                 Firstname = "PV",
                 MI = "N",
@@ -115,12 +100,14 @@ namespace ChurchMemberProfile.WS.Data.Tests
 
             repo.InsertOnSubmit(m1);
 
-            MemberProfile mp = repo.GetById(3);
+            MemberProfile mp = repo.GetById(m1.RecordID);
             Assert.IsNotNull(mp);
 
-            repo.DeleteOnSubmit(3);
+            int deletedId = m1.RecordID;
 
-            MemberProfile mp2 = repo.GetById(3);
+            repo.DeleteOnSubmit(m1.RecordID);
+
+            MemberProfile mp2 = repo.GetById(deletedId);
             Assert.IsNull(mp2);
         }
     }
