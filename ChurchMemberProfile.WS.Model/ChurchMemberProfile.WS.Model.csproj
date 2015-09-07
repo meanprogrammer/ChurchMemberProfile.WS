@@ -57,6 +57,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MemberModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MemberModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MemberProfile.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
@@ -74,6 +79,7 @@
   <ItemGroup>
     <EntityDeploy Include="MemberModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MemberModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>

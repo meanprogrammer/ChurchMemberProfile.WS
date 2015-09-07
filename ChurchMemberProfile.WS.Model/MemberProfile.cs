@@ -14,6 +14,11 @@ namespace ChurchMemberProfile.WS.Model
     
     public partial class MemberProfile
     {
+        public MemberProfile()
+        {
+            this.MemberProfilePropertyValues = new HashSet<MemberProfilePropertyValue>();
+        }
+    
         public int RecordID { get; set; }
         public string Lastname { get; set; }
         public string Firstname { get; set; }
@@ -22,5 +27,8 @@ namespace ChurchMemberProfile.WS.Model
         public System.DateTime Birthdate { get; set; }
         public Nullable<int> LeaderId { get; set; }
         public string Address { get; set; }
+        public int Template { get; set; }
+    
+        public virtual ICollection<MemberProfilePropertyValue> MemberProfilePropertyValues { get; set; }
     }
 }

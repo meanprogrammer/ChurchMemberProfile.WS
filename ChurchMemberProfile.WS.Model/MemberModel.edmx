@@ -17,6 +17,7 @@
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="LeaderId" Type="int" />
           <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Template" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberProfilePropertyValue">
           <Key>
@@ -47,6 +48,18 @@
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Enabled" Type="tinyint" Nullable="false" />
         </EntityType>
+        <Association Name="FK_MemberProfilePropertyValue_MemberProfile">
+          <End Role="MemberProfile" Type="Self.MemberProfile" Multiplicity="1" />
+          <End Role="MemberProfilePropertyValue" Type="Self.MemberProfilePropertyValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberProfile">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="MemberProfilePropertyValue">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PropertyTemplateItem_PropertyTemplate">
           <End Role="PropertyTemplate" Type="Self.PropertyTemplate" Multiplicity="1" />
           <End Role="PropertyTemplateItem" Type="Self.PropertyTemplateItem" Multiplicity="*" />
@@ -64,6 +77,10 @@
           <EntitySet Name="MemberProfilePropertyValue" EntityType="Self.MemberProfilePropertyValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyTemplate" EntityType="Self.PropertyTemplate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyTemplateItem" EntityType="Self.PropertyTemplateItem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MemberProfilePropertyValue_MemberProfile" Association="Self.FK_MemberProfilePropertyValue_MemberProfile">
+            <End Role="MemberProfile" EntitySet="MemberProfile" />
+            <End Role="MemberProfilePropertyValue" EntitySet="MemberProfilePropertyValue" />
+          </AssociationSet>
           <AssociationSet Name="FK_PropertyTemplateItem_PropertyTemplate" Association="Self.FK_PropertyTemplateItem_PropertyTemplate">
             <End Role="PropertyTemplate" EntitySet="PropertyTemplate" />
             <End Role="PropertyTemplateItem" EntitySet="PropertyTemplateItem" />
@@ -85,8 +102,10 @@
           <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="LeaderId" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Template" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberProfilePropertyValues" Relationship="ChurchMemberProfileModel.FK_MemberProfilePropertyValue_MemberProfile" FromRole="MemberProfile" ToRole="MemberProfilePropertyValue" />
         </EntityType>
-        <EntityContainer Name="ChurchMemberProfileEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ChurchMemberProfileEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="MemberProfiles" EntityType="Self.MemberProfile" />
           <EntitySet Name="MemberProfilePropertyValues" EntityType="ChurchMemberProfileModel.MemberProfilePropertyValue" />
           <EntitySet Name="PropertyTemplates" EntityType="ChurchMemberProfileModel.PropertyTemplate" />
@@ -94,6 +113,10 @@
           <AssociationSet Name="FK_PropertyTemplateItem_PropertyTemplate" Association="ChurchMemberProfileModel.FK_PropertyTemplateItem_PropertyTemplate">
             <End Role="PropertyTemplate" EntitySet="PropertyTemplates" />
             <End Role="PropertyTemplateItem" EntitySet="PropertyTemplateItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberProfilePropertyValue_MemberProfile" Association="ChurchMemberProfileModel.FK_MemberProfilePropertyValue_MemberProfile">
+            <End Role="MemberProfile" EntitySet="MemberProfiles" />
+            <End Role="MemberProfilePropertyValue" EntitySet="MemberProfilePropertyValues" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="MemberProfilePropertyValue">
@@ -105,6 +128,7 @@
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Byte" Nullable="false" />
           <Property Name="PropertyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberProfile" Relationship="ChurchMemberProfileModel.FK_MemberProfilePropertyValue_MemberProfile" FromRole="MemberProfilePropertyValue" ToRole="MemberProfile" />
         </EntityType>
         <EntityType Name="PropertyTemplate">
           <Key>
@@ -139,6 +163,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MemberProfilePropertyValue_MemberProfile">
+          <End Type="ChurchMemberProfileModel.MemberProfile" Role="MemberProfile" Multiplicity="1" />
+          <End Type="ChurchMemberProfileModel.MemberProfilePropertyValue" Role="MemberProfilePropertyValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberProfile">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="MemberProfilePropertyValue">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -148,6 +184,7 @@
           <EntitySetMapping Name="MemberProfiles">
             <EntityTypeMapping TypeName="ChurchMemberProfileModel.MemberProfile">
               <MappingFragment StoreEntitySet="MemberProfile">
+                <ScalarProperty Name="Template" ColumnName="Template" />
                 <ScalarProperty Name="RecordID" ColumnName="RecordID" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />

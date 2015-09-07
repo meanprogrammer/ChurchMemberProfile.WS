@@ -22,9 +22,33 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 Nickname = "Dudz",
                 Address = "Caloocan City",
                 Birthdate = new DateTime(1986, 8, 14),
-                LeaderId = 11
+                LeaderId = 11,
+                Template = 1
             };
 
+            List<MemberProfilePropertyValue> props = new List<MemberProfilePropertyValue>();
+            MemberProfilePropertyValue prop1 = new MemberProfilePropertyValue() { 
+                IsDeleted = 0,
+                MemberId = 1,
+                PropertyID = 1,
+                Value = "True"
+            };
+            MemberProfilePropertyValue prop2 = new MemberProfilePropertyValue()
+            {
+                IsDeleted = 0,
+                MemberId = 1,
+                PropertyID = 1,
+                Value = "True"
+            };
+            MemberProfilePropertyValue prop3 = new MemberProfilePropertyValue()
+            {
+                IsDeleted = 0,
+                MemberId = 1,
+                PropertyID = 1,
+                Value = "False"
+            };
+            props.Add(prop1); props.Add(prop2); props.Add(prop3);
+            m1.MemberProfilePropertyValues = props;
             memberRepo.InsertOnSubmit(m1);
         }
 
@@ -78,6 +102,14 @@ namespace ChurchMemberProfile.WS.Data.Tests
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
                 context.Database.ExecuteSqlCommand(string.Format("TRUNCATE TABLE {0}", tableName));
+            }
+        }
+
+        public static void ExecuteSQL(string sql)
+        {
+            using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
+            {
+                context.Database.ExecuteSqlCommand(sql);
             }
         }
     }

@@ -19,6 +19,7 @@ namespace ChurchMemberProfile.WS.Data.Core
         public ChurchMemberProfileEntities()
             : base("name=ChurchMemberProfileEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

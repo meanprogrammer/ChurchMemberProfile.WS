@@ -19,5 +19,7 @@ namespace ChurchMemberProfile.WS.Model
         public string Value { get; set; }
         public byte IsDeleted { get; set; }
         public int PropertyID { get; set; }
+    
+        public virtual MemberProfile MemberProfile { get; set; }
     }
 }

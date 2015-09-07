@@ -33,13 +33,23 @@ namespace ChurchMemberProfile.WS.Data.Tests
         public static void init(TestContext a)
         {
             cleanup();
+            UnitTestHelper.InsertDefaultTemplate(1);
             UnitTestHelper.InsertOneMember();
+
         }
 
         [ClassCleanup]
         public static void cleanup()
         {
+            UnitTestHelper.TruncateTable("MemberProfilePropertyValue");
+            UnitTestHelper.ExecuteSQL("ALTER TABLE MemberProfilePropertyValue DROP CONSTRAINT FK_MemberProfilePropertyValue_MemberProfile");
             UnitTestHelper.TruncateTable("MemberProfile");
+            UnitTestHelper.ExecuteSQL("ALTER TABLE MemberProfilePropertyValue  WITH CHECK ADD  CONSTRAINT FK_MemberProfilePropertyValue_MemberProfile FOREIGN KEY([MemberId]) REFERENCES MemberProfile ([RecordID])");
+
+            UnitTestHelper.TruncateTable("PropertyTemplateItem");
+            UnitTestHelper.ExecuteSQL("ALTER TABLE PropertyTemplateItem DROP CONSTRAINT FK_PropertyTemplateItem_PropertyTemplate");
+            UnitTestHelper.TruncateTable("PropertyTemplate");
+            UnitTestHelper.ExecuteSQL("ALTER TABLE PropertyTemplateItem  WITH CHECK ADD  CONSTRAINT [FK_PropertyTemplateItem_PropertyTemplate] FOREIGN KEY([TemplateID]) REFERENCES [dbo].[PropertyTemplate] ([RecordID])");
         }
 
         [TestMethod()]
@@ -47,6 +57,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
         {
             MemberProfile result = repo.GetById(1);
             Assert.IsNotNull(result);
+            Assert.AreEqual(3, result.MemberProfilePropertyValues.Count);
         }
 
         [TestMethod()]
@@ -80,8 +91,9 @@ namespace ChurchMemberProfile.WS.Data.Tests
 
             repo.InsertOnSubmit(m1);
 
-            MemberProfile mp = repo.GetById(2);
+            MemberProfile mp = repo.GetById(m1.RecordID);
             Assert.IsNotNull(mp);
+
         }
 
         [TestMethod()]

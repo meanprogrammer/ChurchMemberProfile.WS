@@ -17,6 +17,9 @@ namespace ChurchMemberProfile.WS.Data
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
                 member = context.MemberProfiles.Where(c => c.RecordID == id).FirstOrDefault();
+                if (member != null) {
+                    member.MemberProfilePropertyValues = context.MemberProfilePropertyValues.Where(c => c.MemberId == member.RecordID).ToList();
+                }
             }
             return member;
         }
