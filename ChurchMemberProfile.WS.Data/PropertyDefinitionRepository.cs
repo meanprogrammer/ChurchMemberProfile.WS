@@ -7,34 +7,34 @@ using System.Text;
 
 namespace ChurchMemberProfile.WS.Data
 {
-    public class PropertyDefinitionRepository : IRepository<MemberProfilePropertyDefinition>
+    public class PropertyDefinitionRepository : IRepository<PropertyTemplateItem>
     {
 
-        public MemberProfilePropertyDefinition GetById(int id)
+        public PropertyTemplateItem GetById(int id)
         {
-            MemberProfilePropertyDefinition def = null;
+            PropertyTemplateItem def = null;
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                def = context.MemberProfilePropertyDefinitions.Where(c => c.RecordID == id).FirstOrDefault();
+                def = context.PropertyTemplateItems.Where(c => c.RecordID == id).FirstOrDefault();
             }
             return def;
         }
 
-        public IEnumerable<MemberProfilePropertyDefinition> GetAll()
+        public IEnumerable<PropertyTemplateItem> GetAll()
         {
-            IEnumerable<MemberProfilePropertyDefinition> defs = null;
+            IEnumerable<PropertyTemplateItem> defs = null;
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                defs = context.MemberProfilePropertyDefinitions.ToList();
+                defs = context.PropertyTemplateItems.ToList();
             }
             return defs;
         }
 
-        public void InsertOnSubmit(MemberProfilePropertyDefinition entity)
+        public void InsertOnSubmit(PropertyTemplateItem entity)
         {
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                context.MemberProfilePropertyDefinitions.Add(entity);
+                context.PropertyTemplateItems.Add(entity);
                 context.SaveChanges();
             }
         }
@@ -43,10 +43,10 @@ namespace ChurchMemberProfile.WS.Data
         {
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                MemberProfilePropertyDefinition def = context.MemberProfilePropertyDefinitions.Where(c => c.RecordID == id).FirstOrDefault();
+                PropertyTemplateItem def = context.PropertyTemplateItems.Where(c => c.RecordID == id).FirstOrDefault();
                 if (def != null)
                 {
-                    context.MemberProfilePropertyDefinitions.Remove(def);
+                    context.PropertyTemplateItems.Remove(def);
                     context.SaveChanges();
                 }
             }

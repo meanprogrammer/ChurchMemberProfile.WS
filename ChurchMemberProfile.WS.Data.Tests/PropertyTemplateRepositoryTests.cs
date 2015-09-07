@@ -40,8 +40,9 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateDescription = "Default template Description"
             };
 
-            List<MemberProfilePropertyDefinition> list = new List<MemberProfilePropertyDefinition>();
-            MemberProfilePropertyDefinition d1 = new MemberProfilePropertyDefinition() { 
+            List<PropertyTemplateItem> list = new List<PropertyTemplateItem>();
+            PropertyTemplateItem d1 = new PropertyTemplateItem()
+            { 
                 RecordID = 1,
                 Name = "Chapter 1",
                 Type = "Bool",
@@ -50,7 +51,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d2 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d2 = new PropertyTemplateItem()
             {
                 RecordID = 2,
                 Name = "Chapter 2",
@@ -60,7 +61,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d3 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d3 = new PropertyTemplateItem()
             {
                 RecordID = 3,
                 Name = "Chapter 3",
@@ -71,7 +72,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
             };
 
             list.Add(d1); list.Add(d2); list.Add(d3);
-            t1.MemberProfilePropertyDefinitions = list;
+            t1.PropertyTemplateItems = list;
             inner.InsertOnSubmit(t1);
         }
 
@@ -80,10 +81,10 @@ namespace ChurchMemberProfile.WS.Data.Tests
         {
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE MemberProfilePropertyDefinition");
-                context.Database.ExecuteSqlCommand("ALTER TABLE MemberProfilePropertyDefinition DROP CONSTRAINT FK_MemberProfilePropertyDefinition_PropertyTemplate");
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE PropertyTemplateItem");
+                context.Database.ExecuteSqlCommand("ALTER TABLE PropertyTemplateItem DROP CONSTRAINT FK_PropertyTemplateItem_PropertyTemplate");
                 context.Database.ExecuteSqlCommand("TRUNCATE TABLE PropertyTemplate;");
-                context.Database.ExecuteSqlCommand("ALTER TABLE MemberProfilePropertyDefinition  WITH CHECK ADD  CONSTRAINT [FK_MemberProfilePropertyDefinition_PropertyTemplate] FOREIGN KEY([TemplateID]) REFERENCES [dbo].[PropertyTemplate] ([RecordID])");
+                context.Database.ExecuteSqlCommand("ALTER TABLE PropertyTemplateItem  WITH CHECK ADD  CONSTRAINT [FK_PropertyTemplateItem_PropertyTemplate] FOREIGN KEY([TemplateID]) REFERENCES [dbo].[PropertyTemplate] ([RecordID])");
             }
         }
 
@@ -112,8 +113,8 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateDescription = "leaders template Description"
             };
 
-            List<MemberProfilePropertyDefinition> list = new List<MemberProfilePropertyDefinition>();
-            MemberProfilePropertyDefinition d1 = new MemberProfilePropertyDefinition()
+            List<PropertyTemplateItem> list = new List<PropertyTemplateItem>();
+            PropertyTemplateItem d1 = new PropertyTemplateItem()
             {
                 RecordID = 1,
                 Name = "Chapter 21",
@@ -123,7 +124,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d2 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d2 = new PropertyTemplateItem()
             {
                 RecordID = 2,
                 Name = "Chapter 22",
@@ -133,7 +134,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d3 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d3 = new PropertyTemplateItem()
             {
                 RecordID = 3,
                 Name = "Chapter 23",
@@ -144,7 +145,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
             };
 
             list.Add(d1); list.Add(d2); list.Add(d3);
-            t1.MemberProfilePropertyDefinitions = list;
+            t1.PropertyTemplateItems = list;
             inner.InsertOnSubmit(t1);
 
             var template = repo.GetById(2);
@@ -161,8 +162,8 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateDescription = "advanced template Description"
             };
 
-            List<MemberProfilePropertyDefinition> list = new List<MemberProfilePropertyDefinition>();
-            MemberProfilePropertyDefinition d1 = new MemberProfilePropertyDefinition()
+            List<PropertyTemplateItem> list = new List<PropertyTemplateItem>();
+            PropertyTemplateItem d1 = new PropertyTemplateItem()
             {
                 RecordID = 1,
                 Name = "Chapter 11",
@@ -172,7 +173,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d2 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d2 = new PropertyTemplateItem()
             {
                 RecordID = 2,
                 Name = "Chapter 12",
@@ -182,7 +183,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
                 TemplateID = 1
             };
 
-            MemberProfilePropertyDefinition d3 = new MemberProfilePropertyDefinition()
+            PropertyTemplateItem d3 = new PropertyTemplateItem()
             {
                 RecordID = 3,
                 Name = "Chapter 13",
@@ -193,7 +194,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
             };
 
             list.Add(d1); list.Add(d2); list.Add(d3);
-            t1.MemberProfilePropertyDefinitions = list;
+            t1.PropertyTemplateItems = list;
             inner.InsertOnSubmit(t1);
 
             repo.DeleteOnSubmit(2);

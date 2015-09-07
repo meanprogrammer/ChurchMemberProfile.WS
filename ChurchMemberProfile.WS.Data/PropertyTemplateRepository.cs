@@ -17,16 +17,17 @@ namespace ChurchMemberProfile.WS.Data
                 template = context.PropertyTemplates.Where(c => c.RecordID == id).FirstOrDefault();
                 if (template != null) 
                 {
-                    template.MemberProfilePropertyDefinitions = context.MemberProfilePropertyDefinitions.Where(x => x.TemplateID == template.RecordID).ToList();
+                    template.PropertyTemplateItems = context.PropertyTemplateItems.Where(x => x.TemplateID == template.RecordID).ToList();
                 }
             }
             return template;
         }
 
-        private List<MemberProfilePropertyDefinition> GetProperties(int templateId) {
+        private List<PropertyTemplateItem> GetProperties(int templateId)
+        {
             using (ChurchMemberProfileEntities context = new ChurchMemberProfileEntities())
             {
-                return context.MemberProfilePropertyDefinitions.Where(c => c.TemplateID == templateId).ToList();
+                return context.PropertyTemplateItems.Where(c => c.TemplateID == templateId).ToList();
             }
         }
 
@@ -38,7 +39,7 @@ namespace ChurchMemberProfile.WS.Data
                 all = context.PropertyTemplates.ToList();
                 foreach (PropertyTemplate a in all)
                 {
-                    a.MemberProfilePropertyDefinitions = GetProperties(a.RecordID);
+                    a.PropertyTemplateItems = GetProperties(a.RecordID);
                 }
             }
             return all;
@@ -60,11 +61,11 @@ namespace ChurchMemberProfile.WS.Data
                 PropertyTemplate template = context.PropertyTemplates.Where(c => c.RecordID == id).FirstOrDefault();
                 if (template != null)
                 {
-                    var child = context.MemberProfilePropertyDefinitions.Where(c => c.TemplateID == template.RecordID);
+                    var child = context.PropertyTemplateItems.Where(c => c.TemplateID == template.RecordID);
 
                     foreach (var item in child)
                     {
-                        context.MemberProfilePropertyDefinitions.Remove(item);
+                        context.PropertyTemplateItems.Remove(item);
                     }
                     context.SaveChanges();
 

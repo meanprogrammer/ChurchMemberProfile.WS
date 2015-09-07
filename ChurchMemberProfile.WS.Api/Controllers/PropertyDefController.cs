@@ -13,13 +13,13 @@ namespace ChurchMemberProfile.WS.Api.Controllers
     {
         PropertyDefinitionRepository repository = new PropertyDefinitionRepository();
         // GET api/propertydef
-        public IEnumerable<MemberProfilePropertyDefinition> Get()
+        public IEnumerable<PropertyTemplateItem> Get()
         {
             return repository.GetAll();
         }
 
         // GET api/propertydef/5
-        public MemberProfilePropertyDefinition Get(int id)
+        public PropertyTemplateItem Get(int id)
         {
             return repository.GetById(id);
         }

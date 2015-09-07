@@ -16,13 +16,13 @@ namespace ChurchMemberProfile.WS.Model
     {
         public PropertyTemplate()
         {
-            this.MemberProfilePropertyDefinitions = new HashSet<MemberProfilePropertyDefinition>();
+            this.PropertyTemplateItems = new HashSet<PropertyTemplateItem>();
         }
     
         public int RecordID { get; set; }
         public string TemplateName { get; set; }
         public string TemplateDescription { get; set; }
     
-        public virtual ICollection<MemberProfilePropertyDefinition> MemberProfilePropertyDefinitions { get; set; }
+        public virtual ICollection<PropertyTemplateItem> PropertyTemplateItems { get; set; }
     }
 }

@@ -60,9 +60,6 @@
     <Compile Include="MemberProfile.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MemberProfilePropertyDefinition.cs">
-      <DependentUpon>MemberModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MemberProfilePropertyValue.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
@@ -70,11 +67,13 @@
     <Compile Include="PropertyTemplate.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PropertyTemplateItem.cs">
+      <DependentUpon>MemberModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="MemberModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MemberModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
