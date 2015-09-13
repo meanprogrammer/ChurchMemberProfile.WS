@@ -148,7 +148,7 @@ namespace ChurchMemberProfile.WS.Data.Tests
             t1.PropertyTemplateItems = list;
             inner.InsertOnSubmit(t1);
 
-            var template = repo.GetById(2);
+            var template = repo.GetById(t1.RecordID);
             Assert.IsNotNull(template);
         }
 
