@@ -22,3 +22,5 @@
 /packages/jQuery.1.10.2
 /packages/jQuery.Validation.1.11.1
 /ChurchMemberProfile.WS.Api.Tests/bin/Debug
+/ChurchMemberProfile.Web/bin
+/ChurchMemberProfile.Web/obj/Debug
