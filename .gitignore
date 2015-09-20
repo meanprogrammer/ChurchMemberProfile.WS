@@ -24,3 +24,5 @@
 /ChurchMemberProfile.WS.Api.Tests/bin/Debug
 /ChurchMemberProfile.Web/bin
 /ChurchMemberProfile.Web/obj/Debug
+/ChurchMemberProfile.WS.Web.Api/bin
+/ChurchMemberProfile.WS.Web.Api/obj/Debug
