@@ -10,7 +10,7 @@ namespace ChurchMemberProfile.WS.Web.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors();
+            config.EnableCors();  
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
